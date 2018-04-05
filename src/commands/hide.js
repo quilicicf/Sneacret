@@ -28,11 +28,10 @@ const textToZeroWidth = (text) =>
     .map(_.toUpper)
     .map((upperCaseCharacter) => FULL_ALPHABET[ upperCaseCharacter ].toString(3))
     .map((characterCode) => _.padStart(characterCode, 3, '0'))
-    .map((ternaryNumber) => {
-      return _.split(ternaryNumber, '')
-        .map((digit) => _.values(SPACES)[ parseInt(digit, 10) ])
-        .join('');
-    })
+    .map((ternaryNumber) =>
+      _.split(ternaryNumber, '')
+        .map((digit) => SPACES[ parseInt(digit, 10) ])
+        .join(''))
     .join('');
 
 const hideArgs = (yargs) => yargs.usage(`usage: hide-show ${command} [options]`)
@@ -48,7 +47,8 @@ const hideHandler = (args) => {
 
   const zeroWidthSecret = textToZeroWidth(secret);
   const result = `${split.head}${zeroWidthSecret}${split.tail}`;
-  execSync(`printf '%s' "${result}" | xclip -sel clipboard -l 1`);
+  process.stdout.write(`${result}\n`);
+  execSync(`printf '%s' "${result}" | xclip -sel clipboard -l 1`); // TODO: find an OS-independent solution
 };
 
 module.exports = {

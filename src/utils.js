@@ -7,11 +7,13 @@ const FULL_ALPHABET = _(FULL_ALPHABET_LIST)
   .fromPairs()
   .value();
 
-const SPACES = {
+const SPACES_MAP = {
   ZERO_WIDTH_SPACE: String.fromCharCode(0x200B),
   MONGOLIAN_VOWEL_SEPARATOR: String.fromCharCode(0x180E),
   ZERO_WIDTH_NO_BREAK_SPACE: String.fromCharCode(0xFEFF)
 };
+
+const SPACES = _.values(SPACES_MAP);
 
 const splitAt = ({ index, text }) => {
   return {
@@ -20,4 +22,4 @@ const splitAt = ({ index, text }) => {
   };
 };
 
-module.exports = { SPACES, FULL_ALPHABET, splitAt };
+module.exports = { SPACES, FULL_ALPHABET_LIST, FULL_ALPHABET, splitAt };
