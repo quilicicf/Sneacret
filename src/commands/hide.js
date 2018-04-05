@@ -1,9 +1,8 @@
 const _ = require('lodash');
 
 const path = require('path');
-const { execSync } = require('child_process');
 
-const { SPACES, FULL_ALPHABET, splitAt } = require('../utils');
+const { SPACES, FULL_ALPHABET, ENCODED_CHARACTER_SIZE, ENCODING_BASE, splitAt } = require('../utils');
 
 const command = path.parse(__filename).name;
 const aliases = [ command.charAt(0) ];
@@ -26,9 +25,9 @@ const SECRET = {
 const textToZeroWidth = (text) =>
   _(text.split(''))
     .map(_.toUpper)
-    .map((upperCaseCharacter) => FULL_ALPHABET[ upperCaseCharacter ].toString(3))
-    .map((characterCode) => _.padStart(characterCode, 3, '0'))
-    .map((ternaryNumber) =>
+    .map((upperCaseCharacter) => FULL_ALPHABET[ upperCaseCharacter ].toString(ENCODING_BASE))
+    .map((characterCode) => _.padStart(characterCode, ENCODED_CHARACTER_SIZE, '0'))
+    .map((ternaryNumber) => // TODO: not ternary ?
       _.split(ternaryNumber, '')
         .map((digit) => SPACES[ parseInt(digit, 10) ])
         .join(''))
@@ -47,8 +46,8 @@ const hideHandler = (args) => {
 
   const zeroWidthSecret = textToZeroWidth(secret);
   const result = `${split.head}${zeroWidthSecret}${split.tail}`;
+
   process.stdout.write(`${result}\n`);
-  execSync(`printf '%s' "${result}" | xclip -sel clipboard -l 1`); // TODO: find an OS-independent solution
 };
 
 module.exports = {

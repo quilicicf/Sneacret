@@ -2,7 +2,7 @@ const _ = require('lodash');
 
 const path = require('path');
 
-const { SPACES, FULL_ALPHABET_LIST } = require('../utils');
+const { SPACES, FULL_ALPHABET_LIST, ENCODING_BASE, ENCODED_CHARACTER_SIZE } = require('../utils');
 
 const command = path.parse(__filename).name;
 const aliases = [ command.charAt(0) ];
@@ -19,9 +19,9 @@ const extractSecret = (text) =>
   _(text.split(''))
     .filter((character) => _.includes(SPACES, character))
     .map((space) => SPACES.indexOf(space))
-    .chunk(3)
+    .chunk(ENCODED_CHARACTER_SIZE)
     .map((chunk) => _.join(chunk, ''))
-    .map((ternaryNumber) => parseInt(ternaryNumber, 3))
+    .map((ternaryNumber) => parseInt(ternaryNumber, ENCODING_BASE)) // TODO: not ternary ?
     .map((baseTenNumber) => FULL_ALPHABET_LIST[ baseTenNumber ])
     .join('');
 
