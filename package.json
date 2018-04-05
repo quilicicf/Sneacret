@@ -1,0 +1,20 @@
+{
+  "name": "hiddenstring",
+  "version": "1.0.0",
+  "description": "Hide a string inside another",
+  "main": "index.js",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quilicicf/HiddenString.git"
+  },
+  "author": "Cyprien Quilici <quilicicf@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/quilicicf/HiddenString/issues"
+  },
+  "homepage": "https://github.com/quilicicf/HiddenString#readme",
+  "devDependencies": {
+    "lodash": "4.17.5",
+    "yargs": "11.0.0"
+  }
+}
