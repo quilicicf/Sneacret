@@ -14,6 +14,12 @@
   "bugs": {
     "url": "https://github.com/quilicicf/sneacret/issues"
   },
+  "keywords": [
+    "hide",
+    "secret",
+    "string",
+    "invisible"
+  ],
   "homepage": "https://github.com/quilicicf/sneacret#readme",
   "dependencies": {
     "lodash": "4.17.5",
