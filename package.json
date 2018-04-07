@@ -1,6 +1,6 @@
 {
   "name": "sneacret",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Sneak a secret message inside a string",
   "bin": {
     "sneacret": "index.js"
