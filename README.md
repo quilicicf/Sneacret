@@ -1,6 +1,6 @@
-# HiddenString
+# Sneacret
 
-Hide a string inside another
+Sneak a secret message inside a string
 
 ## Why tho?
 
@@ -21,6 +21,31 @@ I already did something similar by hiding invisible spaces (U+FEFF) in a recogni
 Reading this [post](https://medium.com/@umpox/be-careful-what-you-copy-invisibly-inserting-usernames-into-text-with-zero-width-characters-18b4e6f17b66), I realized that there were actually several invisible characters. The implication is that one can encode any message in a series of invisible characters.
 
 This repository is a variation of the technique described above.
+
+## Use it
+
+### Install
+
+`npm install -g sneacret`
+
+### Hide a secret inside a string
+
+To hide `secret` inside the string `Container`:
+
+`sneacret hide -c Container -s secret`
+
+### Reveal the secret hidden inside a string
+
+To reveal the secret hidden inside `C‍᠎᠎⁠᠎‌‌﻿᠎⁠‍​ontainer`:
+
+`sneacret show -c C‍᠎᠎⁠᠎‌‌﻿᠎⁠‍​ontainer`
+
+### Example
+
+```shell
+stringWithSecret="$(sneacret hide -c Container -s Secret)"
+sneacret show -c "$stringWithSecret"
+```
 
 ## How it works
 

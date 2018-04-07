@@ -15,17 +15,16 @@ const CONTAINER = {
   type: 'string'
 };
 
-const extractSecret = (text) =>
-  _(text.split(''))
-    .filter((character) => _.includes(SPACES, character))
-    .map((space) => SPACES.indexOf(space))
-    .chunk(ENCODED_CHARACTER_SIZE)
-    .map((chunk) => _.join(chunk, ''))
-    .map((ternaryNumber) => parseInt(ternaryNumber, ENCODING_BASE)) // TODO: not ternary ?
-    .map((baseTenNumber) => FULL_ALPHABET_LIST[ baseTenNumber ])
-    .join('');
+const extractSecret = (text) => _(text.split(''))
+  .filter((character) => _.includes(SPACES, character))
+  .map((space) => SPACES.indexOf(space))
+  .chunk(ENCODED_CHARACTER_SIZE)
+  .map((chunk) => _.join(chunk, ''))
+  .map((baseN) => parseInt(baseN, ENCODING_BASE))
+  .map((baseTenNumber) => FULL_ALPHABET_LIST[ baseTenNumber ])
+  .join('');
 
-const showArgs = (yargs) => yargs.usage(`usage: hide-show ${command} [options]`)
+const showArgs = (yargs) => yargs.usage(`usage: sneacret ${command} [options]`)
   .option(CONTAINER.name, CONTAINER)
   .help();
 

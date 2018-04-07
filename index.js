@@ -19,7 +19,7 @@ const yargs = require('yargs');
  ************************/
 
 yargs
-  .usage('usage: hide-show <command>')
+  .usage('usage: sneacret <command>')
   .command(require('./src/commands/hide'))
   .command(require('./src/commands/show'))
 
@@ -30,5 +30,5 @@ yargs
   .help()
   .version()
   .wrap(null)
-  .epilogue('For more information, read the manual at https://github.com/quilicicf/HiddenString/blob/master/README.md')
+  .epilogue('For more information, read the manual at https://github.com/quilicicf/sneacret/blob/master/README.md')
   .argv;

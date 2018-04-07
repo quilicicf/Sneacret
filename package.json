@@ -1,19 +1,21 @@
 {
-  "name": "hiddenstring",
+  "name": "sneacret",
   "version": "1.0.0",
-  "description": "Hide a string inside another",
-  "main": "index.js",
-  "private": true,
+  "description": "Sneak a secret message inside a string",
+  "bin": {
+    "sneacret": "index.js"
+  },
+  "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/quilicicf/HiddenString.git"
+    "url": "git+https://github.com/quilicicf/sneacret.git"
   },
   "author": "Cyprien Quilici <quilicicf@gmail.com>",
   "bugs": {
-    "url": "https://github.com/quilicicf/HiddenString/issues"
+    "url": "https://github.com/quilicicf/sneacret/issues"
   },
-  "homepage": "https://github.com/quilicicf/HiddenString#readme",
-  "devDependencies": {
+  "homepage": "https://github.com/quilicicf/sneacret#readme",
+  "dependencies": {
     "lodash": "4.17.5",
     "yargs": "11.0.0"
   }
