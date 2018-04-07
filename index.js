@@ -9,10 +9,6 @@
 const _ = require('lodash');
 const yargs = require('yargs');
 
-/*************************
- *  REQUIRE GUT MODULES  *
- ************************/
-
 // noinspection BadExpressionStatementJS
 /*************************
  *   PROCESS ARGUMENTS   *
