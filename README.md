@@ -44,6 +44,9 @@ To reveal the secret hidden inside `C‍᠎᠎⁠᠎‌‌﻿᠎⁠‍​ontaine
 
 ```shell
 stringWithSecret="$(sneacret hide -c Container -s Secret)"
+# Displaying the result in the terminal might not work.
+# Depending on the font, some invisible characters might get truncated.
+# Pipe it to your clipboard or a file to avoid any issues.
 sneacret show -c "$stringWithSecret"
 ```
 
