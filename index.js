@@ -16,8 +16,11 @@ const yargs = require('yargs');
 
 yargs
   .usage('usage: sneacret <command>')
+  .command(require('./src/commands/alphabet'))
   .command(require('./src/commands/hide'))
   .command(require('./src/commands/show'))
+
+  // Hidden
   .command(require('./src/commands/test'))
 
   // To check that Gut is installed or just mess around

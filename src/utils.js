@@ -1,8 +1,11 @@
 const _ = require('lodash');
+const { spawn } = require('child_process');
 
 const BASE_ALPHABET = [ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' ];
+const NUMBERS = [ '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' ];
+const PUNCTUATION_MARKS = [ '_', '-', '.' ];
 
-const FULL_ALPHABET_LIST = _.concat(BASE_ALPHABET, [ '_', '-', '.' ]);
+const FULL_ALPHABET_LIST = _.concat(NUMBERS, BASE_ALPHABET, PUNCTUATION_MARKS);
 
 const FULL_ALPHABET = _.reduce(FULL_ALPHABET_LIST, (seed, character, index) => ({ ...seed, [ character ]: index }), {});
 
@@ -36,10 +39,23 @@ const splitAt = ({ text, index }) => {
   };
 };
 
+const toClipboard = (text) => {
+  return new Promise((resolve, reject) => {
+    const child = spawn('xclip', [ '-sel', 'clipboard', '-l', '1' ]);
+    child
+      .on('exit', () => resolve(text))
+      .on('error', (error) => reject(error));
+
+    child.stdin.end(text);
+  });
+};
+
 module.exports = {
   SPACES,
+  NUMBERS, BASE_ALPHABET, PUNCTUATION_MARKS,
   FULL_ALPHABET_LIST, FULL_ALPHABET,
   ENCODING_BASE, ENCODED_CHARACTER_SIZE,
   SUPPORTED_CHARACTERS,
-  splitAt
+  splitAt,
+  toClipboard
 };
