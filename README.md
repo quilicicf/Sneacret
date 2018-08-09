@@ -2,6 +2,8 @@
 
 Sneak a secret message inside a string
 
+![](https://badgen.net/npm/v/sneacret) ![](https://badgen.net/npm/dt/sneacret) ![](https://badgen.net/npm/license/sneacret)
+
 ## Why tho?
 
 Have you never received an email from a stranger that seemed to know lots of things about you and wanted to recruit you (or sell something)?
