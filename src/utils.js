@@ -4,16 +4,14 @@ const BASE_ALPHABET = [ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', '
 
 const FULL_ALPHABET_LIST = _.concat(BASE_ALPHABET, [ '_', '-', '.' ]);
 
-const FULL_ALPHABET = _(FULL_ALPHABET_LIST)
-  .map((character, index) => [ character, index ])
-  .fromPairs()
-  .value();
+const FULL_ALPHABET = _.reduce(FULL_ALPHABET_LIST, (seed, character, index) => ({ ...seed, [ character ]: index }), {});
 
 /**
  * Characters found on https://en.wikipedia.org/wiki/Whitespace_character (second table)
  */
+
+// Removed because it shows up in git logs: MONGOLIAN_VOWEL_SEPARATOR: String.fromCharCode(0x180E)
 const SPACES_MAP = {
-  MONGOLIAN_VOWEL_SEPARATOR: String.fromCharCode(0x180E),
   ZERO_WIDTH_SPACE: String.fromCharCode(0x200B),
   ZERO_WIDTH_NON_JOINER: String.fromCharCode(0x200C),
   ZERO_WIDTH_JOINER: String.fromCharCode(0x200D),
