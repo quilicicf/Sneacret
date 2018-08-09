@@ -30,7 +30,11 @@ const showArgs = (yargs) => yargs.usage(`usage: sneacret ${command} [options]`)
 
 const showHandler = (args) => {
   const container = args[ CONTAINER.name ];
-  process.stdout.write(`${extractSecret(container)}\n`);
+  const secret = extractSecret(container);
+
+  process.stdout.write(`${secret}\n`);
+
+  return secret;
 };
 
 module.exports = {

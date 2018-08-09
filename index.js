@@ -18,6 +18,7 @@ yargs
   .usage('usage: sneacret <command>')
   .command(require('./src/commands/hide'))
   .command(require('./src/commands/show'))
+  .command(require('./src/commands/test'))
 
   // To check that Gut is installed or just mess around
   .command('groot', 'Display a random sentence, in French', () => process.stdout.write('Je s\'appelle Groot\n'))

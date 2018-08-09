@@ -60,6 +60,7 @@ const hideHandler = (args) => {
   const result = `${split.head}${zeroWidthSecret}${split.tail}`;
 
   process.stdout.write(`${result}\n`);
+  return result;
 };
 
 module.exports = {
