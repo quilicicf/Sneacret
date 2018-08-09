@@ -42,8 +42,8 @@ const testArgs = (yargs) => yargs.usage(`usage: sneacret ${command} [options]`)
   .option(SECRET.name, SECRET)
   .help();
 
-const testHandler = (args) => {
-  process.stdout.write(`Extracted ${show({ container: hide(args) })}\n`);
+const testHandler = async (args) => {
+  process.stdout.write(`Extracted ${await show({ container: await hide(args) })}\n`);
 };
 
 module.exports = {
