@@ -2,7 +2,10 @@ const _ = require('lodash');
 
 const path = require('path');
 
-const { SPACES, FULL_ALPHABET, ENCODED_CHARACTER_SIZE, ENCODING_BASE, SUPPORTED_CHARACTERS, splitAt } = require('../utils');
+const {
+  SPACES, FULL_ALPHABET, ENCODED_CHARACTER_SIZE, ENCODING_BASE, SUPPORTED_CHARACTERS,
+  splitAt, toClipboard
+} = require('../utils');
 
 const command = path.parse(__filename).name;
 const aliases = [ command.charAt(0) ];
@@ -13,6 +16,14 @@ const CONTAINER = {
   alias: 'c',
   describe: 'The string in which to hide a dirty secret',
   type: 'string'
+};
+
+const TO_CLIPBOARD = {
+  name: 'to-clipboard',
+  alias: 't',
+  describe: 'Copies the result to the clipboard if xclip is installed in the machine',
+  type: 'boolean',
+  default: false
 };
 
 const SECRET = {
@@ -47,12 +58,14 @@ const textToZeroWidth = (text) => _(text.split(''))
 const hideArgs = (yargs) => yargs.usage(`usage: sneacret ${command} [options]`)
   .option(CONTAINER.name, CONTAINER)
   .option(SECRET.name, SECRET)
+  .option(TO_CLIPBOARD.name, TO_CLIPBOARD)
   .help()
   .epilogue(`Supported characters: '${_.join(SUPPORTED_CHARACTERS, '')}'\nLower-case letters will be upper-cased.`);
 
-const hideHandler = (args) => {
+const hideHandler = async (args) => {
   const container = args[ CONTAINER.name ];
   const secret = args[ SECRET.name ];
+  const shouldCopyToClipboard = args[ TO_CLIPBOARD.name ];
 
   const split = splitAt({ text: container, index: 1 });
 
@@ -60,6 +73,9 @@ const hideHandler = (args) => {
   const result = `${split.head}${zeroWidthSecret}${split.tail}`;
 
   process.stdout.write(`${result}\n`);
+  if (shouldCopyToClipboard) {
+    await toClipboard(result);
+  }
   return result;
 };
 
