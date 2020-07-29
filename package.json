@@ -23,7 +23,7 @@
   "homepage": "https://github.com/quilicicf/sneacret#readme",
   "dependencies": {
     "copy-paste-win32fix": "1.4.0",
-    "lodash": "4.17.15",
+    "lodash": "4.17.19",
     "yargs": "15.3.1",
     "snyk": "^1.317.0"
   },
