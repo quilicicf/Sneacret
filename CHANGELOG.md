@@ -1,5 +1,7 @@
 # Changelog
 
+* __2.0.3:__
+  * :lock: Upgrade libs
 * __2.0.2:__
   * :lock: Fix CVEs
   * :arrow_up: Upgrade libs
