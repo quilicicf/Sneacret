@@ -25,7 +25,7 @@
     "copy-paste-win32fix": "1.4.0",
     "lodash": "4.17.21",
     "snyk": "^1.700.0",
-    "yargs": "17.1.1"
+    "yargs": "17.2.0"
   },
   "scripts": {
     "snyk-protect": "snyk protect",
