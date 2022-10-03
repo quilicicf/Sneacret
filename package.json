@@ -24,7 +24,7 @@
   "dependencies": {
     "copy-paste-win32fix": "1.4.0",
     "lodash": "4.17.21",
-    "snyk": "^1.839.0",
+    "snyk": "^1.996.0",
     "yargs": "17.3.1"
   },
   "scripts": {
