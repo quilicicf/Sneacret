@@ -24,11 +24,13 @@
   "dependencies": {
     "copy-paste-win32fix": "1.4.0",
     "lodash": "4.17.21",
-    "snyk": "^1.996.0",
-    "yargs": "17.3.1"
+    "yargs": "17.6.2"
+  },
+  "devDependencies": {
+    "@snyk/protect": "^1.1103.0"
   },
   "scripts": {
-    "snyk-protect": "snyk protect",
+    "snyk-protect": "snyk-protect",
     "prepare": "npm run snyk-protect"
   },
   "snyk": true
