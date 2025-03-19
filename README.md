@@ -18,7 +18,7 @@ The applications may vary, knowing that a platform leaks your data, how a recrui
 
 ## Inspiration
 
-I already did something similar by hiding invisible spaces (U+FEFF) in a recognizable pattern. The drawback was that I had to store a dictionary of patterns against website.
+I already did something similar by hiding invisible spaces (`U+FEFF`) in a recognizable pattern. The drawback was that I had to store a dictionary of patterns against website.
 
 Reading this [post](https://medium.com/@umpox/be-careful-what-you-copy-invisibly-inserting-usernames-into-text-with-zero-width-characters-18b4e6f17b66), I realized that there were actually several invisible characters. The implication is that one can encode any message in a series of invisible characters.
 
@@ -40,7 +40,7 @@ Arguments:
 
 * `--container (-c)`: the string in which to hide the secret
 * `--secret (-s)`: the secret to hide
-* `--to-clipboard (-t)`: copies the result to the clipboard if [xclip](https://github.com/astrand/xclip) is installed
+* `--to-clipboard (-t)`: copies the result to the clipboard, see underlying OS tools in [clipboard.ts](./src/third-party/clipboard.ts)
 
 ### Reveal the secret hidden inside a string
 
@@ -48,11 +48,10 @@ To reveal the secret hidden inside `C‍᠎᠎⁠᠎‌‌﻿᠎⁠‍​ontaine
 
 `sneacret show -c C‍᠎᠎⁠᠎‌‌﻿᠎⁠‍​ontainer`
 
-
 Arguments:
 
 * `--container (-c)`: the string that contains the secret to reveal
-* `--to-clipboard (-t)`: copies the result to the clipboard if [xclip](https://github.com/astrand/xclip) is installed
+* `--to-clipboard (-t)`: copies the result to the clipboard, see underlying OS tools in [clipboard.ts](./src/third-party/clipboard.ts)
 
 ### Show the supported alphabet
 
@@ -76,13 +75,14 @@ sneacret show -c "$stringWithSecret"
 
 There are 6 invisible characters that I identified, 5 of which seem to be supported correctly by most websites (see in src/utils.js). I could have encoded the utf-8 character code of each character in my secret in binary like it's done in the article but I figured I'd try to be more efficient.
 
-For my use-case, being able to hide characters from the alphabet and a few punctuation marks is enough. This means that I have ~30 characters to encode.
+For my use-case, being able to hide characters from the alphabet and a few punctuation marks is enough. This means that I have \~30 characters to encode.
 
 Given the number of invisible characters I found, I can encode all my alphabet in just 3 slots because: `5^3 > 125`.
 
 This means that if I create an alphabet where all letter are numbered from 0 to 25, I can express them in a base-6 number where `0 === String.fromCharCode(0x200B)`, `1 === String.fromCharCode(0x200C)` etc for all my characters.
 
 Concrete example:
+
 ```
 Name=Quilici
 Secret=github
@@ -95,11 +95,11 @@ Paste the result in dillinger.io if you don't trust it.
 
 ## Gotchas
 
-The spaces may not visible but they will still change some behaviors
+The spaces may not visible, but they will still change some behaviors
 
-- In some sites, if not supported by the font they'll show as squares
-- In some sites they just won't show for multiple possible reasons
-- The double click selects a word. Here it will select only the part that's not cut by the spaces
-- Wrapping may decide to cut your word in two
-- Your name may exceed limits on the platform because the spaces count as characters of course
-- If used in the service provided by the platform, it may break their code
+* In some sites, if not supported by the font they'll show as squares
+* In some sites they just won't show for multiple possible reasons
+* The double click selects a word. Here it will select only the part that's not cut by the spaces
+* Wrapping may decide to cut your word in two
+* Your name may exceed limits on the platform because the spaces count as characters of course
+* If used in the service provided by the platform, it may break their code

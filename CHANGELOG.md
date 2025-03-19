@@ -12,6 +12,10 @@
 
 <!-- TOC END -->
 
+## 3.0.0
+
+* :up: Switch to Deno
+
 ## 2.0.4
 
 * :lock: Upgrade libs
