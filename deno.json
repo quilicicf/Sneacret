@@ -1,7 +1,16 @@
 {
+  "name": "@quilicicf/sneacret",
+  "version": "3.0.0",
+  "license": "Apache-2.0",
+  "exports": "./mod.ts",
   "nodeModulesDir": "auto",
   "imports": {
     "@std/path": "jsr:@std/path@1.0.8",
-    "yargs/": "https://deno.land/x/yargs@v17.7.2-deno/"
+    "yargs": "npm:yargs@17.7.2"
+  },
+  "publish": {
+    "exclude": [
+      ".gut-config.json"
+    ]
   }
 }

@@ -1,15 +1,21 @@
-import { Arguments } from "yargs/deno-types.ts";
-import { YargsInstance } from "yargs/build/lib/yargs-factory.js";
+import { Yargs } from "yargs";
 
 import { FileSystemPath, getBaseName } from "../third-party/file-system.ts";
 import { copy } from "../third-party/clipboard.ts";
 import { ArgumentName, ARGUMENTS } from "./common.ts";
 import { ENCODERS, EncodingMode } from "../domain/domain.ts";
 
+interface Args {
+	[ ArgumentName.MODE ]: EncodingMode,
+	[ ArgumentName.CONTAINER ]: string,
+	[ ArgumentName.SECRET ]: string,
+	[ ArgumentName.TO_CLIPBOARD ]: boolean,
+}
+
 const command = getBaseName(import.meta.filename as FileSystemPath)
 	.replace(/\.[^.]+$/, "");
 
-function builder (yargs: YargsInstance): YargsInstance {
+function builder (yargs: Yargs): Yargs {
 	return yargs
 		.usage(`sneacret ${ command } [options]`)
 		.option(ArgumentName.MODE, ARGUMENTS[ ArgumentName.MODE ])
@@ -19,7 +25,7 @@ function builder (yargs: YargsInstance): YargsInstance {
 		.help();
 }
 
-async function handler (args: Arguments): Promise<void> {
+async function handler (args: Args): Promise<void> {
 	const {
 		[ ArgumentName.MODE ]: mode,
 		[ ArgumentName.CONTAINER ]: container,

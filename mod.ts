@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import yargs from "yargs/deno.ts";
+import yargs, {Yargs} from "yargs";
 
 import alphabet from "./src/cli/alphabet.ts";
 import hide from "./src/cli/hide.ts";

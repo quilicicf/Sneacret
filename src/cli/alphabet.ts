@@ -1,21 +1,24 @@
-import { Arguments } from "yargs/deno-types.ts";
-import { YargsInstance } from "yargs/build/lib/yargs-factory.js";
+import { Yargs } from "yargs";
 
 import { FileSystemPath, getBaseName } from "../third-party/file-system.ts";
 import { ArgumentName, ARGUMENTS } from "./common.ts";
 import { ENCODERS, EncodingMode } from "../domain/domain.ts";
 
+interface Args {
+	[ ArgumentName.MODE ]: EncodingMode,
+}
+
 const command = getBaseName(import.meta.filename as FileSystemPath)
 	.replace(/\.[^.]+$/, "");
 
-function builder (yargs: YargsInstance): YargsInstance {
+function builder (yargs: Yargs): Yargs {
 	return yargs
 		.usage(`sneacret ${ command } [options]`)
 		.option(ArgumentName.MODE, ARGUMENTS[ ArgumentName.MODE ])
 		.help();
 }
 
-function handler (args: Arguments): void {
+function handler (args: Args): void {
 	const {
 		[ ArgumentName.MODE ]: mode,
 	} = args;
