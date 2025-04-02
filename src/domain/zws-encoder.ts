@@ -32,9 +32,6 @@ export const ENCODED_CHARACTER_SIZE: number = new Array(8)
 	.map((_value, index) => index)
 	.find((indexBaseZero) => Math.pow(ENCODING_BASE, indexBaseZero) >= BASE_ALPHABET.length) as number;
 
-export const SUPPORTED_CHARACTERS: string[] = FULL_ALPHABET_LIST
-	.slice(0, Math.pow(ENCODING_BASE, ENCODED_CHARACTER_SIZE));
-
 interface ChunkAccumulator {
 	chunk: string;
 	chunks: string[];
