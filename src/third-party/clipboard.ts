@@ -37,22 +37,3 @@ export async function copy (text: string): Promise<void> {
 
 	await childProcess.output();
 }
-
-// const PASTE_COMMANDS: Record<SupportedOs, ClipboardCommand> = {
-// 	[ SupportedOs.DARWIN ]: { name: "pbpaste", args: [] },
-// 	[ SupportedOs.LINUX ]: { name: "wl-paste", args: [] },
-// 	[ SupportedOs.WINDOWS ]: { name: "powershell", args: [ "-Command", "Get-Clipboard" ] },
-// };
-//
-// export async function paste (): Promise<string> {
-// 	const clipboardCommand = PASTE_COMMANDS[ OS ];
-//
-// 	if (!clipboardCommand) {
-// 		throw Error(`Paste from clipboard not supported for OS ${ OS }, PR welcome.`);
-// 	}
-//
-// 	const process = await Deno.run({ cmd, stdout: "piped" });
-// 	const output = await process.output();
-// 	process.close();
-// 	return new TextDecoder().decode(output);
-// }

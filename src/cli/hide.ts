@@ -17,8 +17,6 @@ function builder (yargs: YargsInstance): YargsInstance {
 		.option(ArgumentName.SECRET, ARGUMENTS[ ArgumentName.SECRET ])
 		.option(ArgumentName.TO_CLIPBOARD, ARGUMENTS[ ArgumentName.TO_CLIPBOARD ])
 		.help();
-	// FIXME
-	// .epilogue(`Supported characters: '${ SUPPORTED_CHARACTERS.join("") }'\nLower-case letters will be upper-cased.`);
 }
 
 async function handler (args: Arguments): Promise<void> {
