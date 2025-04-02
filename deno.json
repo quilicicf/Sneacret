@@ -10,7 +10,8 @@
   },
   "publish": {
     "exclude": [
-      ".gut-config.json"
+      ".gut-config.json",
+      ".idea"
     ]
   }
 }

@@ -1,0 +1,8 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="SHOW" type="DenoConfigurationType" exePath="$USER_HOME$/.asdf/shims/deno" inputPath="$PROJECT_DIR$/mod.ts" programParameters="run --allow-all">
+    <option name="applicationArguments" value="show --container 'Cyprien'" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
