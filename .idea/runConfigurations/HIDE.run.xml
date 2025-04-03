@@ -1,0 +1,8 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="HIDE" type="DenoConfigurationType" exePath="$USER_HOME$/.asdf/shims/deno" inputPath="$PROJECT_DIR$/mod.ts" programParameters="run --no-prompt --allow-env --allow-read --allow-run=wl-copy">
+    <option name="applicationArguments" value="hide --container &quot;Cyprien&quot; --secret &quot;my-secret&quot; --to-clipboard" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
