@@ -1,6 +1,5 @@
 import { Yargs } from "yargs";
 
-import { FileSystemPath, getBaseName } from "../third-party/file-system.ts";
 import { copy } from "../third-party/clipboard.ts";
 import { ArgumentName, ARGUMENTS } from "./common.ts";
 import { ENCODERS, EncodingMode } from "../domain/domain.ts";
@@ -12,8 +11,7 @@ interface Args {
 	[ ArgumentName.TO_CLIPBOARD ]: boolean,
 }
 
-const command = getBaseName(import.meta.filename as FileSystemPath)
-	.replace(/\.[^.]+$/, "");
+const command = 'hide';
 
 function builder (yargs: Yargs): Yargs {
 	return yargs

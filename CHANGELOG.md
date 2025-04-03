@@ -1,7 +1,12 @@
+<!-- Formatted by https://github.com/quilicicf/markdown-formatter -->
+
 # Changelog
 
 <!-- TOC START -->
 
+* [3.0.1](#301)
+* [3.0.0](#300)
+* [2.0.4](#204)
 * [2.0.3](#203)
 * [2.0.2](#202)
 * [2.0.1](#201)
@@ -11,6 +16,10 @@
 * [1.0.0](#100)
 
 <!-- TOC END -->
+
+## 3.0.1
+
+* :bug: Fix command name generation when installed from JSR
 
 ## 3.0.0
 

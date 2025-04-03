@@ -1,11 +1,10 @@
 {
   "name": "@quilicicf/sneacret",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "license": "Apache-2.0",
   "exports": "./mod.ts",
   "nodeModulesDir": "auto",
   "imports": {
-    "@std/path": "jsr:@std/path@1.0.8",
     "yargs": "npm:yargs@17.7.2"
   },
   "publish": {

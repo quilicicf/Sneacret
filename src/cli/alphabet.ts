@@ -1,6 +1,5 @@
 import { Yargs } from "yargs";
 
-import { FileSystemPath, getBaseName } from "../third-party/file-system.ts";
 import { ArgumentName, ARGUMENTS } from "./common.ts";
 import { ENCODERS, EncodingMode } from "../domain/domain.ts";
 
@@ -8,8 +7,7 @@ interface Args {
 	[ ArgumentName.MODE ]: EncodingMode,
 }
 
-const command = getBaseName(import.meta.filename as FileSystemPath)
-	.replace(/\.[^.]+$/, "");
+const command = 'alphabet';
 
 function builder (yargs: Yargs): Yargs {
 	return yargs
