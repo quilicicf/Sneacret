@@ -27,18 +27,6 @@ export const ARGUMENTS: Record<ArgumentName, object> = {
 		alias: "s",
 		describe: "The dirty secret to hide",
 		type: "string",
-		coerce: (arg: string) => {
-			// FIXME
-			// const unsupportedCharacters = arg.split("")
-			// 	.filter((character) => !(SUPPORTED_CHARACTERS.includes(character.toUpperCase())));
-			//
-			// if (unsupportedCharacters.length) {
-			// 	throw Error(unsupportedCharacters.length > 1
-			// 		? `The characters [ ${ _.join(unsupportedCharacters, ", ") } ] are not supported.`
-			// 		: `The character ${ _.join(unsupportedCharacters, ", ") } is not supported.`);
-			// }
-			return arg;
-		},
 	},
 	[ ArgumentName.TO_CLIPBOARD ]: {
 		name: "to-clipboard",

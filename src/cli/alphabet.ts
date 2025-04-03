@@ -23,7 +23,7 @@ function handler (args: Args): void {
 		[ ArgumentName.MODE ]: mode,
 	} = args;
 	const encoder = ENCODERS[ mode as EncodingMode ];
-	console.log(`Supported characters: ${ encoder.getAlphabet().join("") }`);
+	console.log(`Supported characters for mode ${mode}: ${ encoder.getAlphabet().join("") }`);
 }
 
 export default {

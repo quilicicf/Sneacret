@@ -22,6 +22,18 @@ function builder (yargs: Yargs): Yargs {
 		.option(ArgumentName.CONTAINER, ARGUMENTS[ ArgumentName.CONTAINER ])
 		.option(ArgumentName.SECRET, ARGUMENTS[ ArgumentName.SECRET ])
 		.option(ArgumentName.TO_CLIPBOARD, ARGUMENTS[ ArgumentName.TO_CLIPBOARD ])
+		.check((args: Args) => {
+			const secret = args[ ArgumentName.SECRET ];
+			const mode = args[ ArgumentName.MODE ];
+			const encoder = ENCODERS[ mode as EncodingMode ];
+			const alphabet = encoder.getAlphabet();
+			const invalidCharacters = (Array.from(secret) as string[])
+				.filter((character) => !alphabet.includes(character));
+			if (invalidCharacters.length) {
+				throw Error(`The secret contains characters [${ invalidCharacters.join("") }] which are not part of the allowed characters [${ alphabet.join("") }]`);
+			}
+			return true;
+		})
 		.help();
 }
 

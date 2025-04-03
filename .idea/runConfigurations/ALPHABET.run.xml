@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="ALPHABET" type="DenoConfigurationType" exePath="$USER_HOME$/.asdf/shims/deno" inputPath="$PROJECT_DIR$/mod.ts" programParameters="run --check">
-    <option name="applicationArguments" value="alphabet --mode vs" />
+  <configuration default="false" name="ALPHABET" type="DenoConfigurationType" exePath="$USER_HOME$/.asdf/shims/deno" inputPath="$PROJECT_DIR$/mod.ts" programParameters="run --check --allow-env --allow-read">
+    <option name="applicationArguments" value="alphabet" />
     <method v="2">
       <option name="Make" enabled="true" />
     </method>
